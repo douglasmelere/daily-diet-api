@@ -9,7 +9,7 @@
     "dev": "tsx watch src/server.ts",
     "knex": "node --no-warnings --import tsx ./node_modules/knex/bin/cli.js",
     "lint": "eslint .",
-    "build": "tsup src --out-dir /build",
+    "build": "mkdir -p /build && npm run knex migrate:latest && tsup src --out-dir /build",
     "test": "vitest"
   },
   "keywords": [],
