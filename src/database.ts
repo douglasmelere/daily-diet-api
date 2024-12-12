@@ -1,5 +1,4 @@
 import { Knex, knex as setupKnex } from "knex";
-import 'dotenv/config'
 import { env } from "./env";
 
 export const config: Knex.Config = {

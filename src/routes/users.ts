@@ -29,7 +29,7 @@ export async function userRoutes(app: FastifyInstance) {
       sessionId = randomUUID()
 
       reply.cookie('sessionId', sessionId, {
-        path: '/meals',
+        path: '/',
         maxAge: 1000 * 60 * 60 * 24 * 7 // 7 days
       })
     }
@@ -42,6 +42,10 @@ export async function userRoutes(app: FastifyInstance) {
       weight,
       height,
       session_id: sessionId
+    })
+
+    return reply.status(201).send({
+      msg: 'User has been created!'
     })
   })
 

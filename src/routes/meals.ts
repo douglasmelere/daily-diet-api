@@ -97,7 +97,7 @@ export async function mealsRoutes(app: FastifyInstance) {
         });
 
         const params = getMealParamsSchema.parse(request.params);
-        const { sessionId } = request.cookies;
+        const { sessionId } = request.cookies!;
 
         const user = await getUserBySessionId(sessionId!);
         if (!user) {
@@ -195,7 +195,7 @@ export async function mealsRoutes(app: FastifyInstance) {
       const userId = user.id
 
       const [mealsCount] = await knex('meals').count('id', {
-        as: 'Number of Meals'
+        as: 'Registered Meals'
       }).where('user_id', userId)
 
       const mealsOnTheDiet = await knex('meals').count('id', {

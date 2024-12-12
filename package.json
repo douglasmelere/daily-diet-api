@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "knex": "node --no-warnings --import tsx ./node_modules/knex/bin/cli.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build": "tsup src --out-dir /build",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +30,7 @@
     "globals": "^15.13.0",
     "sqlite3": "^5.1.7",
     "supertest": "^7.0.0",
+    "tsc": "^2.0.4",
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
