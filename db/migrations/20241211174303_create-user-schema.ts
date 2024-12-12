@@ -7,8 +7,8 @@ export async function up(knex: Knex): Promise<void> {
     table.text('name').notNullable()
     table.text('email').notNullable()
     table.text('address').notNullable()
-    table.decimal('weight', 5, 2).notNullable()
-    table.integer('height').notNullable()
+    table.integer('weight').notNullable()
+    table.decimal('height', 5, 2).notNullable()
   })
 }
 
