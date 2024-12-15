@@ -13,11 +13,11 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+# Run build to compile TypeScript files (se necessário)
+RUN npm run build
+
 # Run migrations (knex)
 RUN npm run knex -- migrate:latest
-
-# Run build (caso você tenha um processo de build)
-RUN npm run build
 
 # Start the server using the production build
 CMD [ "node", "/build/server.js" ]
