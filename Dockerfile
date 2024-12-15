@@ -10,14 +10,18 @@ COPY package*.json ./
 # Install app dependencies
 RUN npm install
 
+# Set environment variables (substitua pelos seus valores reais)
+ENV DATABASE_URL=postgres://postgres:eea3046b89895d864734@daily-diet-api_daily-diet-db:5432/daily-diet-api
+ENV DATABASE_CLIENT=pg
+
 # Bundle app source
 COPY . .
 
-# Run build to compile TypeScript files (se necessário)
-RUN npm run build
-
 # Run migrations (knex)
 RUN npm run knex -- migrate:latest
+
+# Run build (caso você tenha um processo de build)
+RUN npm run build
 
 # Start the server using the production build
 CMD [ "node", "/build/server.js" ]
